@@ -1,25 +1,28 @@
 import { useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../components/ui/dialog";
-import { Play, ChevronLeft, ChevronRight, Star, Phone, Menu, X, ArrowUp, Send } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Phone, Menu, X, ArrowUp, Send } from "lucide-react";
 import OrderSimulation from "../components/OrderSimulation";
 import LoadingScreen from "../components/LoadingScreen";
 
 export default function Index() {
   const [showCookieDialog, setShowCookieDialog] = useState(false);
-  const [menuScrollPosition, setMenuScrollPosition] = useState(0);
+  const [cookiesAccepted, setCookiesAccepted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   useEffect(() => {
-    // Show cookie dialog on mount
-    const hasAcceptedCookies = localStorage.getItem("cookiesAccepted");
-    if (!hasAcceptedCookies) {
-      setShowCookieDialog(true);
-    }
+    // Show loading screen for 2 seconds then hide it
+    const loadingTimer = setTimeout(() => {
+      setIsLoading(false);
+      // Show cookie dialog after loading if not accepted
+      if (!cookiesAccepted) {
+        setShowCookieDialog(true);
+      }
+    }, 2000);
 
     // Scroll reveal animations
     const observerOptions = {
@@ -45,13 +48,14 @@ export default function Index() {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
+      clearTimeout(loadingTimer);
       observer.disconnect();
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [cookiesAccepted]);
 
   const handleAcceptCookies = () => {
-    localStorage.setItem("cookiesAccepted", "true");
+    setCookiesAccepted(true);
     setShowCookieDialog(false);
   };
 
@@ -134,7 +138,6 @@ export default function Index() {
         ? container.scrollLeft - scrollAmount 
         : container.scrollLeft + scrollAmount;
       container.scrollTo({ left: newPosition, behavior: "smooth" });
-      setMenuScrollPosition(newPosition);
     }
   };
 
@@ -793,7 +796,7 @@ export default function Index() {
 
       {/* Cookie Consent Dialog */}
       <Dialog open={showCookieDialog} onOpenChange={setShowCookieDialog}>
-        <DialogContent className="sm:max-w-md bottom-4 top-auto translate-y-0 data-[state=open]:slide-in-from-bottom-full">
+        <DialogContent className=" bg-white sm:max-w-md bottom-4 top-auto translate-y-0 data-[state=open]:slide-in-from-bottom-full">
           <DialogHeader>
             <DialogTitle>🍪 Cookie Notice</DialogTitle>
             <DialogDescription>
