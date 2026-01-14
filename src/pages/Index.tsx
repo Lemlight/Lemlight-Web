@@ -547,9 +547,9 @@ export default function Index() {
 
                 <div className="flex items-center gap-2">
                   {[1, 2, 3, 4].map((i) => (
-                    <Star key={i} className="w-6 h-6 fill-brand-yellow text-brand-yellow" />
+                    <Star key={i} className="w-6 h-6 fill-brand-yellow fill-[#fbcb32]" />
                   ))}
-                  <Star className="w-6 h-6 text-brand-yellow" />
+                  <Star className="w-6 h-6 text-[brand-yellow] fill-[#fbcb32]" />
                   <span className="ml-2 font-medium">4.8</span>
                 </div>
               </div>
