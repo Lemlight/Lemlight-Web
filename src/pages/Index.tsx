@@ -287,8 +287,8 @@ export default function Index() {
   playsInline
   className="w-full h-auto rounded-3xl"
 >
-  <source src="/Lemtight-vid.webm" type="video/webm" />
-  <source src="/Lemtight-vid.mp4" type="video/mp4" />
+  <source src="/lemlight-vid.webm" type="video/webm" />
+  <source src="/lemlight-vid.mp4" type="video/mp4" />
 </video>
                   
                   {/* Floating Card */}
