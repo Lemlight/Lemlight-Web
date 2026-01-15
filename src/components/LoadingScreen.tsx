@@ -7,7 +7,7 @@ interface LoadingScreenProps {
 export default function LoadingScreen({ isVisible }: LoadingScreenProps) {
   if (!isVisible) return null;
 
-  const text = "Reading Lemlight";
+  const text = "Cooking!!!";
   const characters = text.split("");
 
   return (
