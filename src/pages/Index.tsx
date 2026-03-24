@@ -637,12 +637,12 @@ export default function Index() {
                   <img src="/logo/logo.png" alt="Coming Soon" className="w-[100] h-[100]" />
                 </div>
                 <DialogTitle className="text-3xl font-bold text-white mb-1">Coming Soon!</DialogTitle>
-                <p className="text-white/80 text-sm font-medium tracking-widest uppercase">Lemlight is almost ready</p>
+                <p className="text-white/80 text-sm font-medium tracking-widest uppercase">Lemtight is almost ready</p>
               </div>
             </div>
             <div className="px-8 py-6 text-center space-y-4">
               <DialogDescription className="text-gray-600 text-base leading-relaxed">
-                We're putting the finishing touches on something delicious. Lemlight — your fastest food delivery experience, is launching very soon. Stay tuned and be the first to know!
+                We're putting the finishing touches on something delicious. Lemtight — your fastest food delivery experience, is launching very soon. Stay tuned and be the first to know!
               </DialogDescription>
               <div className="flex justify-center gap-2 py-1">
                 <span className="w-2 h-2 rounded-full bg-[#077a69]"></span>
