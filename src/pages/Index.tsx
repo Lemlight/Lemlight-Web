@@ -3,7 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "../components/ui/dialog";
-import { ChevronLeft, ChevronRight, Star, Phone, Menu, X, ArrowUp, Send, Sparkles } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star, Phone, Menu, X, ArrowUp, Send } from "lucide-react";
 import OrderSimulation from "../components/OrderSimulation";
 import LoadingScreen from "../components/LoadingScreen";
 
